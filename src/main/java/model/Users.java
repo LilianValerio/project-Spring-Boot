@@ -1,12 +1,37 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import org.apache.el.parser.AstListData;
 
 public class Users {
 
 	private Integer Id;
 	private String name;
 	private Date dateStart;
+	public static List<Users> listUsers;
+	
+	static {
+		carregarUsers();
+	}
+	
+	public Users() {
+		
+	}
+	
+	public Users(Integer id, String name, Date dateStart) {
+		super();
+		Id = id;
+		this.name = name;
+		this.dateStart = dateStart;
+	}
+	
+	private static void carregarUsers() {
+		listUsers = null;
+	}
+
 
 
 	public Integer getId() {
@@ -62,6 +87,18 @@ public class Users {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
+	}
+
+
+
+	public static List<Users> getListUsers() {
+		return listUsers;
+	}
+
+
+
+	public static void setListUsers(List<Users> listUsers) {
+		Users.listUsers = listUsers;
 	}
 
 
